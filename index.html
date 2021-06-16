@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rufina:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+      crossorigin="anonymous"
+    />
+    <title>Salon</title>
+    <style>
+      .banner .btn {
+        background-color: #ff817e;
+        border-radius: 0;
+        color: #fff;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 0.8;
+        text-transform: uppercase;
+        min-width: 170px;
+        padding: 20px 15px;
+      }
+      .banner .btn:hover {
+        color: #000;
+      }
+      @media screen and (max-width: 767px) {
+        .primary-menu ul {
+          display: none;
+          background-color: #fcf5ee;
+          text-align: center;
+          padding: 10px 0;
+          visibility: visible;
+          -webkit-transition: 0.3s;
+          transition: 0.3s;
+          width: 100%;
+        }
+        .primary-menu ul.active {
+          opacity: 1;
+          visibility: visible;
+        }
+        .primary-menu li a {
+          padding: 10px 15px;
+        }
+      }
+      a:hover,
+      a:focus {
+        text-decoration: none;
+        outline: none;
+      }
+      .appointment .v2 {
+        padding-bottom: 0;
+        border-bottom: 1px solid #fddfd5;
+      }
+      .appointment .btn {
+        background-color: #ff817e;
+        border-radius: 50px;
+        color: #fff;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 0.8;
+        text-transform: uppercase;
+        min-width: 170px;
+        padding: 20px 15px;
+      }
+      .appointment .btn:hover {
+        color: #000;
+      }
+      .appointment .appointment-wrap {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+      }
+      .appointment .appointment-wrap figure {
+        -ms-flex-preferred-size: 40%;
+        flex-basis: 40%;
+      }
+      .appointment .appointment-wrap .appointment-form {
+        -ms-flex-preferred-size: 60%;
+        flex-basis: 60%;
+        padding-left: 100px;
+      }
+      .appointment .appointment-wrap .appointment-form form {
+        max-width: 650px;
+        position: relative;
+        top: 50%;
+        padding: 30px 15px;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+      .appointment-form {
+        background-color: #fff9f8;
+      }
+      .appointment-form .form-field {
+        position: relative;
+        width: 100%;
+      }
+      .appointment-form .form-field input,
+      .appointment-form .form-field textarea,
+      .appointment-form .form-field select {
+        border-color: transparent;
+        border: none;
+        border-bottom: 1px solid #d4d3d3;
+        color: #999;
+        background-color: #fff9f8;
+        display: block;
+        font-size: 12px;
+        font-weight: 400;
+        padding: 10px 0 10px 15px;
+        margin-bottom: 30px;
+        width: 100%;
+      }
+      .appointment-form .form-field input:focus,
+      .appointment-form .form-field textarea:focus,
+      .appointment-form .form-field select:focus {
+        outline: none;
+      }
+      .appointment-form .form-field input::-webkit-input-placeholder,
+      .appointment-form .form-field textarea::-webkit-input-placeholder,
+      .appointment-form .form-field select::-webkit-input-placeholder {
+        opacity: 1;
+        text-transform: uppercase;
+      }
+      .appointment-form .form-field input::-ms-input-placeholder,
+      .appointment-form .form-field textarea::-ms-input-placeholder,
+      .appointment-form .form-field select::-ms-input-placeholder {
+        opacity: 1;
+        text-transform: uppercase;
+      }
+      .appointment-form .form-field input:-ms-input-placeholder,
+      .appointment-form .form-field textarea:-ms-input-placeholder,
+      .appointment-form .form-field select:-ms-input-placeholder {
+        opacity: 1;
+        text-transform: uppercase;
+      }
+      .appointment-form .form-field input::placeholder,
+      .appointment-form .form-field textarea::placeholder,
+      .appointment-form .form-field select::placeholder {
+        opacity: 1;
+        text-transform: uppercase;
+      }
+      .appointment-form .form-field select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        text-transform: uppercase;
+      }
+      .appointment-form .form-field .select-field {
+        width: 100%;
+      }
+      .appointment-form .half-width input {
+        width: 49%;
+        display: inline-flex;
+        justify-content: space-between;
+      }
+      @media screen and (max-width: 1300px) {
+        .appointment .appointment-wrap figure {
+          display: none;
+        }
+        .appointment .appointment-wrap .appointment-form {
+          -ms-flex-preferred-size: 100%;
+          flex-basis: 100%;
+          padding: 30px 15px;
+        }
+        .appointment .appointment-wrap .appointment-form form {
+          margin: 0 auto;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        .appointment-form .form-field .half-width {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
+        }
+        .appointment-form .form-field .half-width input,
+        .appointment-form .form-field .half-width .select-field {
+          width: 49%;
+        }
+      }
+    </style>
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+      .footer {
+        background-color: #fff9f8;
+        padding: 80px 0 60px;
+      }
+      .footer .foo-logo {
+        margin: 0 auto;
+      }
+      .footer .foo-nav {
+        position: relative;
+        margin: 30px 0;
+      }
+      .footer .foo-nav ul li a {
+        color: #263a41;
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 0 20px;
+      }
+      .footer .foo-nav li a:hover {
+        color: #ff817e;
+      }
+      .footer .foo-social {
+        margin-bottom: 30px;
+      }
+      .footer .foo-social a {
+        border-right: 1px solid #b1b4bb;
+        color: #3a414e;
+        display: inline-block;
+        font-size: 14px;
+        line-height: 0.5;
+        padding: 0 10px;
+      }
+      .footer .foo-social a:last-child {
+        border-right: none;
+      }
+      .footer .foo-social a:hover {
+        color: #ff817e;
+      }
+      .footer .copyright {
+        color: #888;
+        font-size: 13px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+      }
+      .footer .copyright a {
+        color: #ff817e;
+      }
+      @media screen and (min-width: 768px) {
+        .footer .foo-nav li {
+          display: inline-block;
+        }
+      }
+      @media screen and (max-width: 767px) {
+        .footer .foo-nav ul {
+          background-color: #fcf5ee;
+          display: none;
+          text-align: center;
+          padding: 10px 0;
+        }
+        .footer .foo-nav li a {
+          padding: 10px 15px;
+        }
+      }
+      .contact span {
+        border: 1px solid #30383b;
+        border-radius: 50%;
+        color: #30383b;
+        display: inline-block;
+        font-size: 13px;
+        text-align: center;
+        line-height: 30px;
+        margin: 0 5px;
+        height: 30px;
+        width: 30px;
+        background-color: #ff817e;
+        border-color: #ff817e;
+        color: #fff;
+      }
+      .contact address {
+        margin: 0 0 16px;
+        padding: 0 0 0 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header abs-header">
+      <div class="container">
+        <div class="row align-items-end">
+          <div class="col-md-3">
+            <a href="#" class="logo">
+              <img src="images/main.png" alt="" />
+            </a>
+          </div>
+          <div class="col-md-9">
+            <nav class="primary-menu">
+              <button onclick="show_hide()" class="mobile-menu">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+              </button>
+              <ul id="drop-content" class="links">
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="banner">
+      <div class="spa-img">
+        <img src="images/header-img.png" alt="" />
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="banner-content">
+              <span>spa &amp; beauty center</span>
+              <h2>Beauty and success starts here.</h2>
+              <p>
+                All kinds of beauty and salon services available here.Just
+                choose the one you need and enjoy the best service.
+              </p>
+              <a href="#contact" class="btn">book now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about" id="about">
+      <img src="images/flower1.png" alt="" class="flower-1" />
+      <img src="images/flower2.png" alt="" class="flower-2" />
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-md-12 m-auto">
+            <div class="sec-heading">
+              <img src="images/butterfly.png" alt="" />
+              <span class="tagline">About our spa center</span>
+              <h3 class="sec-title">Come and you will be Inspired</h3>
+              <p>
+                We have brought to you the best services you deserve.All kinds
+                of beauty care and salon services are available at your
+                doorstep.Just book the service you need and get in done in
+                minutes with our highly experienced team.We make sure that our
+                customers get the best services they deserve.If you want to get
+                the best sevices-->BOOK NOW!<br />All you need to do is to fill
+                the details and click the button in the book an appointment
+                section.Hurry Up!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="procedures" id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 m-auto">
+            <div class="sec-heading">
+              <h3 class="sec-title">Popular Services</h3>
+              <p>
+                We provide all kinds of beauty care and salon services to get
+                your daily needs done in minutes.<br />Book your desired service
+                now.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <article class="post">
+              <img src="images/service11.jpg" alt="" />
+              <h4><a href="#">Massage Therapy</a></h4>
+              <p>
+                Tired of working all day long?<br />Don't worry,we have a
+                solution for you.Get the best massage therapy from us and get
+                rid of all your tireness,pain & aches.<br /><br />BOOK NOW!
+              </p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="post">
+              <img src="images/service5.jpg" alt="" />
+              <h4><a href="#">Beauty Care</a></h4>
+              <p>
+                Got bored of your dull face?<br />Don't worry,we take care of
+                your beauty and fairness.We have the best team to take care of
+                your beauty.<br /><br />BOOK NOW!
+              </p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="post">
+              <img src="images/service7.jpg" alt="" />
+              <h4><a href="#">Hair Treatment</a></h4>
+              <p>
+                Getting irritated from your unhealthy hair?<br />Don't worry,we
+                take the best care of your hair.Get all kinds of treatment for
+                your hair from us.<br /><br />BOOK NOW!
+              </p>
+            </article>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <article class="post">
+              <img src="images/service4.jpg" alt="" />
+              <h4><a href="#">Pedicure</a></h4>
+              <p>
+                We provide the best pedicure services at your doorstep.Just book
+                one now and you will have our experienced team with you to serve
+                you.<br /><br />BOOK NOW!
+              </p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="post">
+              <img src="images/service3.jpg" alt="" />
+              <h4><a href="#">Manicure</a></h4>
+              <p>
+                We provide the best manicure services at your doorstep.Just book
+                one now and you will have our experienced team with you to serve
+                you.<br /><br />BOOK NOW!
+              </p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="post">
+              <img src="images/service10.jpg" alt="" />
+              <h4><a href="#">Hair Cut</a></h4>
+              <p>
+                Getting bored of your hairstyle?<br />Don't worry,we have the
+                best hair cut specialits to give you a new hairstyle which will
+                please you.<br /><br />BOOK NOW!
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="team">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 m-auto">
+            <div class="sec-heading">
+              <h3 class="sec-title">Experienced Team</h3>
+              <p>
+                We have highly trained professionals in various fields to let
+                you get the best service you deserve.<br />We leave no stones
+                unturned to please our customers.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="single-memb">
+              <img src="images/service1.jpg" alt="" />
+              <div class="memb-details">
+                <h6>Highly Experienced</h6>
+                <span>Haircut Specialists</span>
+                <div class="memb-social">
+                  <a href="https://facebook.com">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://twitter.com">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://instagram.com">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://google.com">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="single-memb">
+              <img src="images/massage.jpg" alt="" />
+              <div class="memb-details">
+                <h6>Highly Experienced</h6>
+                <span>Massage Therapists</span>
+                <div class="memb-social">
+                  <a href="https://facebook.com">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://twitter.com">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://instagram.com">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://google.com">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="single-memb">
+              <img src="images/p&m.jpg" alt="" />
+              <div class="memb-details">
+                <h6>Highly Experienced</h6>
+                <span>Pedicure & Manicure Specialists</span>
+                <div class="memb-social">
+                  <a href="https://facebook.com">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://twitter.com">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://instagram.com">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://google.com">
+                    <i class="fa fa-google-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="appointment v2" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 m-auto">
+            <div class="sec-heading">
+              <h3 class="sec-title">Book An Appointment</h3>
+              <p>
+                Booking one of our services is all you need to do.Book soon to
+                get the best services at you doorstep.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="appointment-wrap">
+        <figure>
+          <img src="images/appimg.jpg" alt="" />
+        </figure>
+        <div class="appointment-form">
+          <form action="submit.php" method="POST">
+            <div class="form-field half-width">
+              <input type="text" placeholder="Name" name="name" required="" />
+              <input
+                type="email"
+                placeholder="Email address"
+                name="email"
+                required=""
+              />
+            </div>
+            <div class="form-field half-width">
+              <div class="select-field">
+                <select name="service">
+                  <option>Select service</option>
+                  <option>Hair Cut</option>
+                  <option>Beauty Care</option>
+                  <option>Massage</option>
+                  <option>Pedicure</option>
+                  <option>Manicure</option>
+                </select>
+              </div>
+              <input type="tel" name="mobile" placeholder="Phone number" />
+            </div>
+            <div class="form-field half-width">
+              <input type="date" placeholder="date" name="date" required="" />
+              <input type="time" placeholder="time" name="time" required="" />
+            </div>
+            <div class="form-field">
+              <textarea name="bdesc" placeholder="description"></textarea>
+            </div>
+            <button class="btn btn-round" type="submit" name="submit">
+              Make an Appointment
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <a class="logo foo-logo" href="index.html">
+              <img src="images/main.png" alt="" />
+            </a>
+            <nav class="foo-nav">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">service</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+            <div class="foo-social">
+              <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </div>
+            <p class="copyright">
+              © COPYRIGHT 2020 <a href="#">Leospa.com</a> ALL RIGHTS RESERVED.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      function show_hide() {
+        var click = document.getElementById("drop-content");
+        if (click.style.display === "none") {
+          click.style.display = "block";
+        } else {
+          click.style.display = "none";
+        }
+      }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>
