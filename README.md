@@ -6,7 +6,7 @@ A website for all types of spa and beauty services.
   - HTML
   - CSS
   - Bootstrap
-  - Javascript
+  - JavaScript
 ### Backend
   - PHP
   - MySQL
